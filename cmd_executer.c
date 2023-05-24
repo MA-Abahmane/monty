@@ -9,7 +9,8 @@ char *oper;
 /* matching list (match the operator with its function) */
 instruction_t matcher[] = {
 {"push", _push},
-{"pall", _pall}
+{"pall", _pall},
+{NULL, NULL}
 };
 
 /* get the operators from the given string using strtok() */
