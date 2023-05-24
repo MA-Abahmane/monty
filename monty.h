@@ -60,6 +60,15 @@ int mode;
 
 extern e_info data;
 
+/**
+ * Stack functions declaration
+*/
+stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+size_t dlistint_len(const stack_t *h);
+void free_dlistint(stack_t *head);
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+size_t print_dlistint(const stack_t *h);
 
 /* Function declarations */
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
@@ -68,5 +77,5 @@ int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
 /* opcode functions */
 void _push(stack_t **stack, unsigned int count);
 void _pall(stack_t **stack, unsigned int count);
-#endif
 
+#endif /* MAIN_H */
