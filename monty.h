@@ -1,6 +1,9 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* Given data structures for this project */
 
@@ -35,8 +38,35 @@ typedef struct instruction_s
 } instruction_t;
 
 
+/* Our data structures */
+
+/**
+ * struct execution_info - a structure used to store 
+ *   the execution Information we need.
+ *
+ * @file: The file we are reading from.
+ * @content: the line we are reading from the file
+ * @val: its passed with the opcode value
+ * @mode: the inserting mode (Stack / Queue)
+ */
+typedef struct execution_info
+{
+FILE *file;
+char *content;
+char *token;
+int mode;
+
+} e_info;
+
+extern e_info data;
+
 
 /* Function declarations */
+int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
 
 
+/* opcode functions */
+void _push(stack_t **stack, unsigned int count);
+void _pall(stack_t **stack, unsigned int count);
 #endif
+
