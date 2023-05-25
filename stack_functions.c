@@ -45,3 +45,21 @@ while (head != NULL)
 	head = next;
 }
 }
+
+
+/**
+ * stack_len - Count stack nodes
+ * @h: Double linked list head
+ * Return: size of element printed
+*/
+size_t stack_len(const stack_t *h)
+{
+const stack_t *copy = h;
+int _size = 0;
+while (copy)
+{
+	_size++;
+	copy = copy->next;
+}
+return ((size_t)_size);
+}

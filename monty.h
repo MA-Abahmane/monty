@@ -71,6 +71,7 @@ extern e_info data;
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
 void add_node(stack_t **stack, int n);
 void free_stack(stack_t *head);
+size_t stack_len(const stack_t *h);
 int is_number(char *str);
 size_t chunks_len(char **args);
 

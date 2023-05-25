@@ -9,14 +9,9 @@
 void mod(stack_t **stack, unsigned int count)
 {
 	stack_t *copy;
-	int size = 0, val;
+	int val, size = stack_len(stack);
 
 	copy = *stack;
-	while (copy)
-	{
-		copy = copy->next;
-		size++;
-	}
 
 	if (size < 2)
 	{
