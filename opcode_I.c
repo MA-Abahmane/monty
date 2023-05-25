@@ -55,14 +55,13 @@ free_stack(*stack);
  */
 void _pint(stack_t **stack, unsigned int count)
 {
-
 if (*stack == NULL)
 {
 	fprintf(stderr, "L%u: can't pint, stack empty\n", count);
 	fclose(data.file);
 	free(data.content);
+	free_stack(*stack);
 	exit(EXIT_FAILURE);
 }
-
 printf("%d\n", (*stack)->n);
 }
