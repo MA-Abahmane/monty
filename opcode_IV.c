@@ -6,7 +6,7 @@
  * @count: Line number
  * Return: void
 */
-void mod(stack_t **stack, unsigned int count)
+void _mod(stack_t **stack, unsigned int count)
 {
 	stack_t *copy;
 	int val, size = stack_len(stack);
