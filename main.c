@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 /* information collector */
 e_info data = {NULL, NULL, NULL, 0};
@@ -9,7 +10,7 @@ FILE *file;
 char *Ldata;
 size_t Lsize = 0;
 ssize_t crnt_line = 1;
-unsigned int count;
+unsigned int count = 0;
 stack_t *stack = NULL;
 
 /* if more than one argument is given to the program */
@@ -30,7 +31,6 @@ if (file == NULL)
 }
 
 /* get the commands from the .m file */
-count = 0;
 while (crnt_line > 0)
 {
 Ldata = NULL;
@@ -40,7 +40,7 @@ count++;
 /* send each command line to be executed */
 if (crnt_line > 0)
 {
-cmd_executer(file, Ldata, &stack ,count);
+  cmd_executer(file, Ldata, &stack ,count);
 }
 free(Ldata);
 }
@@ -48,3 +48,4 @@ free(Ldata);
 fclose(file);
 return (0);
 }
+

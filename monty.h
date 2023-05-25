@@ -5,7 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
+#include <ctype.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 /* Given data structures for this project */
 
@@ -74,10 +77,15 @@ size_t print_dlistint(const stack_t *h);
 
 /* Function declarations */
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
-int is_number(char *str);
+void add_node(stack_t **stack, int n);
 
 /* opcode functions */
 void _push(stack_t **stack, unsigned int count);
 void _pall(stack_t **stack, unsigned int count);
+void _pint(stack_t **stack, unsigned int count);
+void _pop(stack_t **stack, unsigned int count);
+void _swap(stack_t **stack, unsigned int count);
+void _add(stack_t **stack, unsigned int count);
+void _nop(stack_t **stack, unsigned int count);
 
-#endif /* MAIN_H */
+#endif

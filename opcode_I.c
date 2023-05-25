@@ -1,30 +1,88 @@
 #include "monty.h"
 
 /**
- * _push - Push value to the stack
- * @stack: Pointer to stack pointer
- * @count: Line number
- * Return: void
-*/
+ * _push - a function that adds a node to a list
+ * @stack: the data structures to manipulate.
+ * @count: the line we are reading from in the file.
+ *
+ * Return: NONE
+ */
 void _push(stack_t **stack, unsigned int count)
 {
-char *value = data.token;
-if (value == NULL || !is_number(value))
+int n, i;
+(void)count;
+
+/* if the opcodes token is true and is a digit */
+if (data.token)
 {
-	fprintf(stderr, "L%d: usage: push integer\n", count);
-	exit(EXIT_FAILURE);
+
+i = 0;
+while (data.token[i] != '\0')
+{
+if (data.token[i] < 48 || data.token[i] > 57)
+{
+fprintf(stderr, "L%d: usage: push integer\n", count);
+fclose(data.file);
+free(data.content);
+exit(EXIT_FAILURE);
 }
-add_dnodeint(stack, atoi(value));
+i++;
+}
+/* if number is not passed */
+}
+else
+{
+fprintf(stderr, "L%d: usage: push integer\n", count);
+fclose(data.file);
+free(data.content);
+exit(EXIT_FAILURE);
 }
 
+n = atoi(data.token);
+add_node(stack, n);
+}
+
+
 /**
- * _pall - Print all stack values
- * @stack: Pointer to stack pointer
- * @count: Line number
- * Return: void
-*/
+ * _pall - a function that prints all values of a list
+ * @count: the line we are reading from in the file.
+ *
+ * Return: NONE
+ */
 void _pall(stack_t **stack, unsigned int count)
 {
-	(void)count;
-	print_dlistint(*stack);
+stack_t *p;
+(void)count;
+
+p = *stack;
+if (p == NULL)
+  return;
+  
+while (p != NULL)
+{
+  printf("%d\n", p->n);
+  p = p->next;
+}
+  
+}
+
+
+/**
+ * _pint - a function that print the value of the first node
+ * @count: the line we are reading from in the file.
+ *
+ * Return: NONE
+ */
+void _pint(stack_t **stack, unsigned int count)
+{
+
+if (*stack == NULL)
+{
+fprintf(stderr, "L%d: can't pint, stack empty\n", count);
+fclose(data.file);
+free(data.content);
+exit(EXIT_FAILURE);  
+}
+
+printf("%d\n", (*stack)->n);
 }
