@@ -1,9 +1,16 @@
 #include "monty.h"
 #define SEPARATORS " \n\t"
 
+/**
+ * cmd_executer - Command executor
+ * @file: File pointer
+ * @Ldata: Line pointer
+ * @stack: stack to manipulate
+ * @count: Line number
+ * Return: 0 on success or 1
+*/
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count)
 {
-
 /* matching list (match the operator with its function) */
 instruction_t matcher[] = {
 {"push", _push},
@@ -15,10 +22,8 @@ instruction_t matcher[] = {
 {"nop", _nop},
 {NULL, NULL}
 };
-
 unsigned int i;
 char *oper;
-
 /* get the operators from the given string using strtok() */
 oper = strtok(Ldata, SEPARATORS);
 /* save the operators argument for future use */
@@ -31,10 +36,8 @@ if (strcmp(oper, matcher[i].opcode) == 0)
 matcher[i].f(stack, count);
 return (0);
 }
-
-i++; 
+i++;
 }
-
 /* operators not found */
 if (oper && matcher[i].opcode == NULL)
 {
@@ -43,7 +46,5 @@ fclose(file);
 free(Ldata);
 exit(EXIT_FAILURE);
 }
-
-
 return (1);
 }
