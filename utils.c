@@ -15,8 +15,6 @@ while (i < len)
 {
 	if (!isdigit(str[i]) && str[i] != '-')
 		return (0);
-	else if (str[i] != '-' && i > 0)
-		return (0);
 	i++;
 }
 return (1);
