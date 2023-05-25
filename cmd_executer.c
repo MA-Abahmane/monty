@@ -27,11 +27,9 @@ instruction_t matcher[] = {
 {"mod", _mod},
 {NULL, NULL}
 };
-unsigned int i;
-char *oper;
-oper = strtok(Ldata, SEPARATORS);
+unsigned int i = 0;
+char *oper = strtok(Ldata, SEPARATORS);
 data.token = strtok(NULL, SEPARATORS);
-i = 0;
 
 while (oper && matcher[i].opcode)
 {

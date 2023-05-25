@@ -30,15 +30,13 @@ exit(EXIT_FAILURE);
 
 /* open file to reading mode */
 file = fopen(argv[1], "r");
-data.file = file;
 /* if its not possible to open file */
 if (file == NULL)
 {
   fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
   exit(EXIT_FAILURE);
 }
-
-/* get the commands from the .m file */
+data.file = file;
 while (crnt_line > 0)
 {
 Ldata = NULL;
@@ -48,7 +46,7 @@ count++;
 /* send each command line to be executed */
 if (crnt_line > 0 && data.content[0] != '#')
 {
-cmd_executer(file, Ldata, &stack ,count);
+cmd_executer(file, Ldata, &stack, count);
 }
 free(Ldata);
 }
