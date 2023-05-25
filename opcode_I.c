@@ -10,8 +10,8 @@
 void _push(stack_t **stack, unsigned int count)
 {
 (void)count;
-int n, i;
 
+int n, i;
 
 /* if the opcodes token is true and is a digit */
 if (data.token)
@@ -53,6 +53,7 @@ add_node(stack, n);
 void _pall(stack_t **stack, unsigned int count)
 {
 (void)count;
+
 stack_t *p;
 
 p = *stack;
