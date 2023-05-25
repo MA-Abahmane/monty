@@ -37,3 +37,36 @@ void _mod(stack_t **stack, unsigned int count)
 	*stack = copy->next;
 	free(copy);
 }
+
+
+/**
+ * _pchar - print the value of the caracter number
+ * @stack: Pointer to stack pointer
+ * @count: Line number
+ * Return: NONE
+*/
+void _pchar(stack_t **stack, unsigned int count)
+{
+	stack_t *p;
+
+	p = *stack;
+
+	if (p == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty", count);
+		fclose(data.file);
+		free(data.content);
+		exit(EXIT_FAILURE); 
+	}
+
+	/* if not a value in the ascii table */
+	if (p->n < 0 || p->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range", count);
+		fclose(data.file);
+		free(data.content);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%c\n", p->n);
+}
