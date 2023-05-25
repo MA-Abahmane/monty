@@ -23,9 +23,11 @@ void _push(stack_t **stack, unsigned int count)
 	}
 
 n = atoi(data.token);
-add_node(stack, n);
+if (data.mode == 0)
+	add_node(stack, n);
+else
+	add_node_end(*stack, n);
 }
-
 
 /**
  * _pall - a function that prints all values of a list
@@ -37,7 +39,6 @@ void _pall(stack_t **stack, unsigned int count)
 {
 stack_t *p;
 (void)count;
-
 p = *stack;
 while (p != NULL)
 {

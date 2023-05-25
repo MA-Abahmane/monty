@@ -63,3 +63,33 @@ while (copy)
 }
 return ((size_t)_size);
 }
+
+/**
+ * add_node_end - Add new node to the end of a dlistint
+ * @head: The double linked list head
+ * @n: Node value
+ * Return: New node address or NULL
+ */
+stack_t *add_node_end(stack_t **head, const int n)
+{
+stack_t *new, *prev_node;
+new = malloc(sizeof(struct stack_s));
+if (new == NULL)
+	return (NULL);
+new->n = n;
+new->next = NULL;
+if ((*head) == NULL)
+{
+	new->prev = NULL;
+	(*head) = new;
+	return (*head);
+}
+prev_node = (*head);
+while (prev_node->next != NULL)
+{
+	prev_node = prev_node->next;
+}
+prev_node->next = new;
+new->prev = prev_node;
+return (new);
+}
