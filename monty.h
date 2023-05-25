@@ -1,6 +1,5 @@
 #ifndef MONTY_H
 #define MONTY_H
-#define  _GNU_SOURCE
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -65,15 +64,6 @@ int mode;
 
 extern e_info data;
 
-/**
- * Stack functions declaration
-*/
-stack_t *add_dnodeint(stack_t **head, const int n);
-stack_t *add_dnodeint_end(stack_t **head, const int n);
-size_t dlistint_len(const stack_t *h);
-void free_dlistint(stack_t *head);
-int delete_dnodeint_at_index(stack_t **head, unsigned int index);
-size_t print_dlistint(const stack_t *h);
 
 /* Function declarations */
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
@@ -88,5 +78,7 @@ void _pop(stack_t **stack, unsigned int count);
 void _swap(stack_t **stack, unsigned int count);
 void _add(stack_t **stack, unsigned int count);
 void _nop(stack_t **stack, unsigned int count);
-
+void _sub(stack_t **stack, unsigned int count);
+void _div(stack_t **stack, unsigned int count);
+void _mul(stack_t **stack, unsigned int count);
 #endif

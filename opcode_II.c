@@ -1,5 +1,7 @@
 #include "monty.h"
 
+
+
 /**
  * _pop - a function that remove the first node in a list
  * @stack: the data structures to manipulate.
@@ -9,20 +11,21 @@
  */
 void _pop(stack_t **stack, unsigned int count)
 {
-	stack_t *p;
+stack_t *p;
 
-	p = *stack;
-	if (*stack == NULL)
-	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", count);
-		fclose(data.file);
-		free(data.content);
-		exit(EXIT_FAILURE);
-	}
-
-	*stack = (*stack)->next;
-	free(p);
+p = *stack;
+if (*stack == NULL)
+{
+fprintf(stderr, "L%d: can't pop an empty stack\n", count);
+fclose(data.file);
+free(data.content);
+exit(EXIT_FAILURE);  
 }
+
+*stack = (*stack)->next;
+free(p);
+}
+
 
 /**
  * _swap - a function that remove the first node in a list
@@ -33,31 +36,32 @@ void _pop(stack_t **stack, unsigned int count)
  */
 void _swap(stack_t **stack, unsigned int count)
 {
-	stack_t *p;
-	int size = 0, val;
+stack_t *p;
+int size = 0, val;
 
-	/* check list contains less than two elements */
-	p = *stack;
-	while (p)
-	{
-		p = p->next;
-		size++;
-	}
-
-	if (size < 2)
-	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", count);
-		fclose(data.file);
-		free(data.content);
-		exit(EXIT_FAILURE);
-	}
-
-	/* switching values */
-	p = *stack;
-	val = p->n;
-	p->n = p->next->n;
-	p->next->n = val;
+/* check list contains less than two elements */
+p = *stack;
+while (p)
+{
+p = p->next;
+size++;
 }
+
+if (size < 2)
+{
+fprintf(stderr, "L%d: can't swap, stack too short\n", count);
+fclose(data.file);
+free(data.content);
+exit(EXIT_FAILURE);  
+}
+
+/* switching values */
+p = *stack;
+val = p->n;
+p->n = p->next->n;
+p->next->n = val;
+}
+
 
 /**
  * _add - a function that adds the top two elements of the stack.
@@ -68,29 +72,29 @@ void _swap(stack_t **stack, unsigned int count)
  */
 void _add(stack_t **stack, unsigned int count)
 {
-	stack_t *p;
-	int size = 0, val;
+stack_t *p;
+int size = 0, val;
 
-	/* check list contains less than two elements */
-	p = *stack;
-	while (p)
-	{
-		p = p->next;
-		size++;
-	}
+/* check list contains less than two elements */
+p = *stack;
+while (p)
+{
+p = p->next;
+size++;
+}
 
-	if (size < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", count);
-		fclose(data.file);
-		free(data.content);
-		exit(EXIT_FAILURE);
-	}
+if (size < 2)
+{
+fprintf(stderr, "L%d: can't add, stack too short\n", count);
+fclose(data.file);
+free(data.content);
+exit(EXIT_FAILURE);  
+}
 
-	p = *stack;
-	val = p->n + p->next->n;
-	p->next->n = val;
+p = *stack;
+val = p->n + p->next->n;
+p->next->n = val;
 
-	*stack = p->next;
-	free(p);
+*stack = p->next;
+free(p);
 }
