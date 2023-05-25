@@ -42,6 +42,5 @@ cmd_executer(file, Ldata, &stack, count);
 free(Ldata);
 }
 fclose(file);
-free_dlistint(stack);
 return (0);
 }
