@@ -30,6 +30,9 @@ instruction_t matcher[] = {
 };
 unsigned int i = 0;
 char *oper = strtok(Ldata, SEPARATORS);
+if (oper && oper[0] == '#')
+return (0);
+
 data.token = strtok(NULL, SEPARATORS);
 
 while (oper && matcher[i].opcode)
