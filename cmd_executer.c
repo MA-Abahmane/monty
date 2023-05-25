@@ -13,8 +13,7 @@ int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count)
 char **chunks = split(Ldata);
 if (chunks_len(chunks) == 0)
 	return (0);
-
-data.token = chunks[0];
+data.token = chunks[1];
 
 if (get_instruction_func(chunks[0]) == NULL)
 {

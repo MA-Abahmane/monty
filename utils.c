@@ -13,7 +13,7 @@ size_t len = strlen(str);
 unsigned int i = 0;
 while (i < len)
 {
-	if (str[i] != '-' && !isdigit(str[i]))
+	if (!isdigit(str[i]) && str[i] != '-')
 		return (0);
 	i++;
 }
