@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 /* information collector */
 e_info data = {NULL, NULL, NULL, 0};
@@ -47,3 +48,4 @@ free(Ldata);
 fclose(file);
 return (0);
 }
+
