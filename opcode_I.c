@@ -26,7 +26,7 @@ n = atoi(data.token);
 if (data.mode == 0)
 	add_node(stack, n);
 else
-	add_node_end(*stack, n);
+	add_node_end(stack, n);
 }
 
 /**
