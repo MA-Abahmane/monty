@@ -12,7 +12,6 @@
 
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count)
 {
-
 /* matching list (match the operator with its function) */
 instruction_t matcher[] = {
 {"push", _push},
@@ -27,11 +26,9 @@ instruction_t matcher[] = {
 {"mul", _mul},
 {NULL, NULL}
 };
-
 unsigned int i;
 char *oper;
 oper = strtok(Ldata, SEPARATORS);
-/* save the operators argument for future use */
 data.token = strtok(NULL, SEPARATORS);
 i = 0;
 while (oper && matcher[i].opcode)
