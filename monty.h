@@ -72,6 +72,10 @@ int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
 void (*get_instruction_func(char *str))(stack_t **, unsigned int);
 void add_node(stack_t **stack, int n);
 int is_number(char *str);
+char **split(char *str);
+void *_realloc(void *ptr, size_t old_size, size_t new_size);
+void _memcpy(void *dest, void *src, size_t size);
+size_t chunks_len(char **args);
 
 /* opcode functions */
 void _push(stack_t **stack, unsigned int count);

@@ -1,5 +1,4 @@
 #include "monty.h"
-#define SEPARATORS " \n\t"
 
 /**
  * cmd_executer - Command executor
@@ -11,19 +10,22 @@
 */
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count)
 {
-char *oper = strtok(Ldata, SEPARATORS);
-data.token = strtok(NULL, SEPARATORS);
+char **chunks = split(Ldata);
+if (chunks_len(chunks) == 0)
+	return (0);
 
-if (!oper || get_instruction_func(oper) == NULL)
+data.token = chunks[0];
+
+if (get_instruction_func(chunks[0]) == NULL)
 {
-	fprintf(stderr, "L%d: unknown instruction %s\n", count, oper);
+	fprintf(stderr, "L%d: unknown instruction %s\n", count, chunks[0]);
 	fclose(file);
 	free(Ldata);
 	exit(EXIT_FAILURE);
 }
 else
 {
-	get_instruction_func(oper)(stack, count);
+	get_instruction_func(chunks[0])(stack, count);
 }
 return (1);
 }
