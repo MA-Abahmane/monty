@@ -12,50 +12,19 @@
 
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count)
 {
+char **chunks = split(Ldata);
+if (chunks_len(chunks) == 0)
+	return (0);
+data.token = chunks[1];
 
-/* matching list (match the operator with its function) */
-instruction_t matcher[] = {
-{"push", _push},
-{"pall", _pall},
-{"pint", _pint},
-{"pop", _pop},
-{"swap", _swap},
-{"add", _add},
-{"nop", _nop},
-{"sub", _sub},
-{"div", _div},
-{"mul", _mul},
-{NULL, NULL}
-};
-
-unsigned int i;
-char *oper;
-
-/* get the operators from the given string using strtok() */
-oper = strtok(Ldata, SEPARATORS);
-/* save the operators argument for future use */
-data.token = strtok(NULL, SEPARATORS);
-i = 0;
-while (oper && matcher[i].opcode)
+if (get_instruction_func(chunks[0]) == NULL)
 {
-if (strcmp(oper, matcher[i].opcode) == 0)
-{
-matcher[i].f(stack, count);
-return (0);
+	fprintf(stderr, "L%d: unknown instruction %s\n", count, chunks[0]);
+	fclose(file);
+	free(Ldata);
+	exit(EXIT_FAILURE);
 }
-
-i++; 
-}
-
-/* operators not found */
-if (oper && matcher[i].opcode == NULL)
-{
-fprintf(stderr, "L%d: unknown instruction %s\n", count, oper);
-fclose(file);
-free(Ldata);
-exit(EXIT_FAILURE);
-}
-
-
+else
+	get_instruction_func(chunks[0])(stack, count);
 return (1);
 }
