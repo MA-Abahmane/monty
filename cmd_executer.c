@@ -1,5 +1,5 @@
 #include "monty.h"
-#define SEPARATORS " \n\t"
+#define SEPARATORS "\n "
 
 /**
  * cmd_executer - Command executor
