@@ -38,8 +38,6 @@ stack_t *p;
 (void)count;
 
 p = *stack;
-if (p == NULL)
-	return;
 while (p != NULL)
 {
 printf("%d\n", p->n);

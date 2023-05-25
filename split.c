@@ -19,7 +19,7 @@ while (part != NULL)
 	if (index >= parts_size)
 	{
 		parts_size += 64;
-		parts = realloc(parts, sizeof(char *) * parts_size);
+		parts = _realloc(parts, sizeof(part), sizeof(char *) * parts_size);
 		if (parts == NULL)
 			return (parts);
 	}
