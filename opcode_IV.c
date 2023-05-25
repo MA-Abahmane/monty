@@ -70,3 +70,31 @@ void _pchar(stack_t **stack, unsigned int count)
 
 	printf("%c\n", p->n);
 }
+
+
+/**
+ * _pstr - print the values of each character number
+ * @stack: Pointer to stack pointer
+ * @count: Line number
+ * Return: NONE
+*/
+void _pstr(stack_t **stack, unsigned int count)
+{
+	stack_t *p;
+	(void)count;
+
+	p = *stack;
+
+	while (p != NULL)
+	{
+		/* if not a value in the ascii table or is 0 */
+		if (p->n <= 0 || p->n > 127)
+		{
+			break;
+		}
+		printf("%c", p->n);
+		p = p->next;
+	}
+	putchar('\n');
+}
+

@@ -26,6 +26,7 @@ instruction_t matcher[] = {
 {"mul", _mul},
 {"mod", _mod},
 {"pchar", _pchar},
+{"pstr", _pstr},
 {NULL, NULL}
 };
 unsigned int i = 0;
