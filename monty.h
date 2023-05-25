@@ -88,6 +88,7 @@ void _div(stack_t **stack, unsigned int count);
 void _mul(stack_t **stack, unsigned int count);
 void _mod(stack_t **stack, unsigned int count);
 void _pchar(stack_t **stack, unsigned int count);
+void _pstr(stack_t **stack, unsigned int count);
   
  
 #endif
