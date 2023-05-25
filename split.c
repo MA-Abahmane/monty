@@ -8,7 +8,7 @@
 char **split(char *str)
 {
 int index = 0, parts_size = 64;
-const char *separators = " \t\n";
+const char *separators = "\n ";
 char *part;
 char **parts = malloc(sizeof(char *) * parts_size);
 if (parts == NULL)
