@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * mod - Calculate the modulo of the two top stack element
+ * _mod - Calculate the modulo of the two top stack element
  * @stack: Pointer to stack pointer
  * @count: Line number
  * Return: void

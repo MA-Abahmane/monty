@@ -38,7 +38,7 @@ if (strcmp(oper, matcher[i].opcode) == 0)
 matcher[i].f(stack, count);
 return (0);
 }
-i++; 
+i++;
 }
 /* operators not found */
 if (oper && matcher[i].opcode == NULL)

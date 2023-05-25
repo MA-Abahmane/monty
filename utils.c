@@ -27,16 +27,3 @@ int is_number(char *str)
 	}
 	return (1);
 }
-
-/**
- * chunks_len - Get arguments lenght
- * @args: Arguments
- * Return: size_t
-*/
-size_t chunks_len(char **args)
-{
-	unsigned int i = 0;
-	while (args[i] != NULL)
-		i++;
-	return (i);
-}
