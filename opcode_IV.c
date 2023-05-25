@@ -80,9 +80,8 @@ void _pchar(stack_t **stack, unsigned int count)
 */
 void _pstr(stack_t **stack, unsigned int count)
 {
-	(void)count;
-
 	stack_t *p;
+	(void)count;
 
 	p = *stack;
 
