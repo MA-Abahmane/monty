@@ -29,3 +29,19 @@ p->prev = new_node;
 new_node->next = *stack;
 *stack = new_node;
 }
+
+/**
+ * free_stack - Free a dlistint
+ * @head: Double linked list head
+ * Return: void
+*/
+void free_stack(stack_t *head)
+{
+stack_t *next;
+while (head != NULL)
+{
+	next = head->next;
+	free(head);
+	head = next;
+}
+}

@@ -71,6 +71,7 @@ extern e_info data;
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
 void (*get_instruction_func(char *str))(stack_t **, unsigned int);
 void add_node(stack_t **stack, int n);
+void free_stack(stack_t *head);
 int is_number(char *str);
 char **split(char *str);
 void *_realloc(void *ptr, size_t old_size, size_t new_size);

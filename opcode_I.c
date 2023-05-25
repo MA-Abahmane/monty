@@ -18,6 +18,7 @@ void _push(stack_t **stack, unsigned int count)
 		fprintf(stderr, "L%d: usage: push integer\n", count);
 		fclose(data.file);
 		free(data.content);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -43,6 +44,7 @@ while (p != NULL)
 printf("%d\n", p->n);
 p = p->next;
 }
+free_stack(*stack);
 }
 
 /**
