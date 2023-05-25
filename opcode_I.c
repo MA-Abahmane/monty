@@ -78,7 +78,7 @@ void _pint(stack_t **stack, unsigned int count)
 
 if (*stack == NULL)
 {
-fprintf(stderr, "L%d: can't pint, stack empty\n", count);
+fprintf(stderr, "L%u: can't pint, stack empty\n", count);
 fclose(data.file);
 free(data.content);
 exit(EXIT_FAILURE);  
