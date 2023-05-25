@@ -32,7 +32,7 @@ char *oper;
 oper = strtok(Ldata, SEPARATORS);
 data.token = strtok(NULL, SEPARATORS);
 i = 0;
-while (oper && strcmp(oper, "#") == 1)
+while (oper && strncmp(oper[0], '#', 1) == 1 && matcher[i].opcode)
 {
 if (strcmp(oper, matcher[i].opcode) == 0)
 {
