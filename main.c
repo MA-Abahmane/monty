@@ -46,7 +46,7 @@ crnt_line = getline(&Ldata, &Lsize, file);
 data.content = Ldata;
 count++;
 /* send each command line to be executed */
-if (crnt_line > 0)
+if (crnt_line > 0 && data.content[0] != '#')
 {
 cmd_executer(file, Ldata, &stack ,count);
 }
