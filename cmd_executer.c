@@ -9,10 +9,8 @@
  * @count: Line number
  * Return: 0 on success or 1
 */
-
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count)
 {
-/* matching list (match the operator with its function) */
 instruction_t matcher[] = {
 {"push", _push},
 {"pall", _pall},
@@ -33,9 +31,7 @@ unsigned int i = 0;
 char *oper = strtok(Ldata, SEPARATORS);
 if (oper && oper[0] == '#')
 return (0);
-
 data.token = strtok(NULL, SEPARATORS);
-
 while (oper && matcher[i].opcode)
 {
 if (strcmp(oper, matcher[i].opcode) == 0)
@@ -45,7 +41,6 @@ return (0);
 }
 i++;
 }
-/* operators not found */
 if (oper && matcher[i].opcode == NULL)
 {
 fprintf(stderr, "L%d: unknown instruction %s\n", count, oper);

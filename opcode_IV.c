@@ -56,7 +56,7 @@ void _pchar(stack_t **stack, unsigned int count)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", count);
 		fclose(data.file);
 		free(data.content);
-		exit(EXIT_FAILURE); 
+		exit(EXIT_FAILURE);
 	}
 
 	/* if not a value in the ascii table */

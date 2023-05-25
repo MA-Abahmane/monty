@@ -24,9 +24,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+int n;
+struct stack_s *prev;
+struct stack_s *next;
 } stack_t;
 
 /**
@@ -39,20 +39,19 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+char *opcode;
+void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
 /* Our data structures */
 
 /**
- * struct execution_info - a structure used to store 
- *   the execution Information we need.
- *
+ * struct execution_info - a structure used to store
+ * the execution Information we need.
  * @file: The file we are reading from.
  * @content: the line we are reading from the file
- * @val: its passed with the opcode value
+ * @token: its passed with the opcode value
  * @mode: the inserting mode (Stack / Queue)
  */
 typedef struct execution_info
@@ -89,5 +88,5 @@ void _mul(stack_t **stack, unsigned int count);
 void _mod(stack_t **stack, unsigned int count);
 void _pchar(stack_t **stack, unsigned int count);
 void _pstr(stack_t **stack, unsigned int count);
-  
+
 #endif
