@@ -20,7 +20,6 @@ if (get_instruction_func(chunks[0]) == NULL)
 	fprintf(stderr, "L%d: unknown instruction %s\n", count, chunks[0]);
 	fclose(file);
 	free(Ldata);
-	free_stack(*stack);
 	exit(EXIT_FAILURE);
 }
 else
