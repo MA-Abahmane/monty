@@ -9,34 +9,17 @@
  */
 void _push(stack_t **stack, unsigned int count)
 {
-int n, i;
-(void)count;
+	int n;
+	(void)count;
 
-/* if the opcodes token is true and is a digit */
-if (data.token)
-{
-
-i = 0;
-while (data.token[i] != '\0')
-{
-if (data.token[i] < 48 || data.token[i] > 57)
-{
-fprintf(stderr, "L%d: usage: push integer\n", count);
-fclose(data.file);
-free(data.content);
-exit(EXIT_FAILURE);
-}
-i++;
-}
-/* if number is not passed */
-}
-else
-{
-fprintf(stderr, "L%d: usage: push integer\n", count);
-fclose(data.file);
-free(data.content);
-exit(EXIT_FAILURE);
-}
+	/* if the opcodes token is true and is a digit */
+	if (data.token == NULL || !is_number(data.token))
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", count);
+		fclose(data.file);
+		free(data.content);
+		exit(EXIT_FAILURE);
+	}
 
 n = atoi(data.token);
 add_node(stack, n);

@@ -68,6 +68,7 @@ extern e_info data;
 /* Function declarations */
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
 void add_node(stack_t **stack, int n);
+int is_number(char *str);
 
 /* opcode functions */
 void _push(stack_t **stack, unsigned int count);
