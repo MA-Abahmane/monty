@@ -1,9 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define  _GNU_SOURCE
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 
 /* Given data structures for this project */
 
@@ -72,7 +74,7 @@ size_t print_dlistint(const stack_t *h);
 
 /* Function declarations */
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
-
+int is_number(char *str);
 
 /* opcode functions */
 void _push(stack_t **stack, unsigned int count);
