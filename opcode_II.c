@@ -19,7 +19,7 @@ if (*stack == NULL)
 fprintf(stderr, "L%d: can't pop an empty stack\n", count);
 fclose(data.file);
 free(data.content);
-exit(EXIT_FAILURE);  
+exit(EXIT_FAILURE);
 }
 
 *stack = (*stack)->next;
@@ -52,7 +52,7 @@ if (size < 2)
 fprintf(stderr, "L%d: can't swap, stack too short\n", count);
 fclose(data.file);
 free(data.content);
-exit(EXIT_FAILURE);  
+exit(EXIT_FAILURE);
 }
 
 /* switching values */
@@ -88,7 +88,7 @@ if (size < 2)
 fprintf(stderr, "L%d: can't add, stack too short\n", count);
 fclose(data.file);
 free(data.content);
-exit(EXIT_FAILURE);  
+exit(EXIT_FAILURE);
 }
 
 p = *stack;

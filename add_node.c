@@ -1,6 +1,11 @@
 #include "monty.h"
 
-
+/**
+ * add_node - Add a node to the stack
+ * @stack: the stack to manipulate
+ * @n: Node value
+ * Return: void
+*/
 void add_node(stack_t **stack, int n)
 {
 stack_t *p, *new_node;
