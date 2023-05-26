@@ -1,3 +1,3 @@
 push 98
-rotl
+rotr
 pall
