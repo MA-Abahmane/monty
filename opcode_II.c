@@ -88,5 +88,5 @@ val = p->n + p->next->n;
 p->next->n = val;
 
 *stack = p->next;
-free_stack(p);
+free(p);
 }
