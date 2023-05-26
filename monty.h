@@ -89,5 +89,7 @@ void _pchar(stack_t **stack, unsigned int count);
 void _pstr(stack_t **stack, unsigned int count);
 void _rotl(stack_t **stack, unsigned int count);
 void _rotr(stack_t **stack, unsigned int count);
+void _stack(stack_t **stack, unsigned int count);
+void _queue(stack_t **stack, unsigned int count);
 
 #endif
