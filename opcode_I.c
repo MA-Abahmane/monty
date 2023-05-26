@@ -26,7 +26,12 @@ n = atoi(data.token);
 if (data.mode == 0)
 	add_node(stack, n);
 else
-	add_node_end(stack, n);
+{
+	if (stack_len(*stack) == 0)
+		add_node(stack, n);
+	else
+		add_node_end(stack, n);
+}
 }
 
 /**
