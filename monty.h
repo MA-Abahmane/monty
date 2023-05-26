@@ -65,7 +65,6 @@ int mode;
 
 extern e_info data;
 
-
 /* Function declarations */
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
 void add_node(stack_t **stack, int n);
