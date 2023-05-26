@@ -23,10 +23,7 @@ void _push(stack_t **stack, unsigned int count)
 	}
 
 n = atoi(data.token);
-if (data.mode == 0)
-	add_node(stack, n);
-else
-	add_node_end(stack, n);
+add_node(stack, n);
 }
 
 /**
@@ -37,15 +34,14 @@ else
  */
 void _pall(stack_t **stack, unsigned int count)
 {
-stack_t *p;
+stack_t *p = *stack;
 (void)count;
-p = *stack;
-while (p != NULL)
+while (p)
 {
 printf("%d\n", p->n);
 p = p->next;
 }
-free_stack(*stack);
+free_stack(p);
 }
 
 /**
@@ -61,7 +57,6 @@ if (*stack == NULL)
 	fprintf(stderr, "L%u: can't pint, stack empty\n", count);
 	fclose(data.file);
 	free(data.content);
-	free_stack(*stack);
 	exit(EXIT_FAILURE);
 }
 printf("%d\n", (*stack)->n);
