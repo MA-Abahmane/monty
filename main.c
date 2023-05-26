@@ -41,6 +41,7 @@ cmd_executer(file, Ldata, &stack, count);
 }
 free(Ldata);
 }
+free_stack(stack);
 fclose(file);
 return (0);
 }
