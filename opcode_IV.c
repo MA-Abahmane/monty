@@ -109,7 +109,7 @@ void _rotl(stack_t **stack, unsigned int count)
 	stack_t *tmp;
 	int n;
 	(void)count;
-	if (!(*stack))
+	if (!(*stack) || stack_len(*stack) == 1)
 		return;
 	n = (*stack)->n;
 	tmp = *stack;
