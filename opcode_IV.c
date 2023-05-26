@@ -106,12 +106,14 @@ void _pstr(stack_t **stack, unsigned int count)
 */
 void _rotl(stack_t **stack, unsigned int count)
 {
+	stack_t *tmp;
 	int n;
 	(void)count;
 	if (!(*stack))
 		return;
 	n = (*stack)->n;
+	tmp = *stack;
 	(*stack) = (*stack)->next;
-	(*stack)->prev = NULL;
 	add_node_end(stack, n);
+	free(tmp);
 }
