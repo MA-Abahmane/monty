@@ -46,6 +46,7 @@ if (oper && matcher[i].opcode == NULL)
 fprintf(stderr, "L%d: unknown instruction %s\n", count, oper);
 fclose(file);
 free(Ldata);
+free_stack(*stack);
 exit(EXIT_FAILURE);
 }
 return (1);

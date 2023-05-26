@@ -72,22 +72,14 @@ p->next->n = val;
  */
 void _add(stack_t **stack, unsigned int count)
 {
-stack_t *p;
-int size = 0, val;
-
-/* check list contains less than two elements */
-p = *stack;
-while (p)
-{
-p = p->next;
-size++;
-}
-
+stack_t *p = *stack;
+int size = stack_len(p), val;
 if (size < 2)
 {
 fprintf(stderr, "L%d: can't add, stack too short\n", count);
 fclose(data.file);
 free(data.content);
+free_stack(p);
 exit(EXIT_FAILURE);
 }
 
@@ -96,5 +88,5 @@ val = p->n + p->next->n;
 p->next->n = val;
 
 *stack = p->next;
-free(p);
+free_stack(p);
 }
