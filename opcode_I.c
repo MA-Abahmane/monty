@@ -41,7 +41,6 @@ while (p)
 printf("%d\n", p->n);
 p = p->next;
 }
-free_stack(p);
 }
 
 /**
