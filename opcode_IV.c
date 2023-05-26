@@ -98,3 +98,20 @@ void _pstr(stack_t **stack, unsigned int count)
 	putchar('\n');
 }
 
+/**
+ * _rotl - Rotate the stack
+ * @stack: The stack to manipulate
+ * @count: Line number
+ * Return: void
+*/
+void _rotl(stack_t **stack, unsigned int count)
+{
+	int n;
+	(void)count;
+	if (!(*stack))
+		return;
+	n = (*stack)->n;
+	(*stack) = (*stack)->next;
+	(*stack)->prev = NULL;
+	add_node_end(stack, n);
+}

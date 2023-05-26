@@ -15,6 +15,7 @@ new_node = malloc(sizeof(stack_t));
 if (new_node == NULL)
 {
 fprintf(stderr, "Error: malloc failed");
+free_stack(p);
 exit(EXIT_FAILURE);
 }
 
@@ -31,18 +32,18 @@ new_node->next = *stack;
 }
 
 /**
- * free_stack - Free a dlistint
- * @head: Double linked list head
+ * free_stack - Free a stack
+ * @stack: Double linked list stack
  * Return: void
 */
-void free_stack(stack_t *head)
+void free_stack(stack_t *stack)
 {
 stack_t *next;
-while (head != NULL)
+while (stack != NULL)
 {
-	next = head->next;
-	free(head);
-	head = next;
+	next = stack->next;
+	free(stack);
+	stack = next;
 }
 }
 
@@ -66,30 +67,32 @@ return ((size_t)_size);
 
 /**
  * add_node_end - Add new node to the end of a dlistint
- * @head: The double linked list head
+ * @stack: The stack to manipulate
  * @n: Node value
- * Return: New node address or NULL
+ * Return: void
  */
-stack_t *add_node_end(stack_t **head, const int n)
+void add_node_end(stack_t **stack, const int n)
 {
 stack_t *new, *prev_node;
 new = malloc(sizeof(struct stack_s));
 if (new == NULL)
-	return (NULL);
+{
+fprintf(stderr, "Error: malloc failed");
+free_stack(*stack);
+exit(EXIT_FAILURE);
+}
 new->n = n;
 new->next = NULL;
-if ((*head) == NULL)
+if ((*stack) == NULL)
 {
 	new->prev = NULL;
-	(*head) = new;
-	return (*head);
+	(*stack) = new;
 }
-prev_node = (*head);
+prev_node = (*stack);
 while (prev_node->next != NULL)
 {
 	prev_node = prev_node->next;
 }
 prev_node->next = new;
 new->prev = prev_node;
-return (new);
 }

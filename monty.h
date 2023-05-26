@@ -69,8 +69,8 @@ extern e_info data;
 /* Function declarations */
 int cmd_executer(FILE *file, char *Ldata, stack_t **stack, unsigned int count);
 void add_node(stack_t **stack, int n);
-stack_t *add_node_end(stack_t **head, const int n);
-void free_stack(stack_t *head);
+void add_node_end(stack_t **stack, const int n);
+void free_stack(stack_t *stack);
 size_t stack_len(const stack_t *h);
 int is_number(char *str);
 
@@ -88,5 +88,6 @@ void _mul(stack_t **stack, unsigned int count);
 void _mod(stack_t **stack, unsigned int count);
 void _pchar(stack_t **stack, unsigned int count);
 void _pstr(stack_t **stack, unsigned int count);
+void _rotl(stack_t **stack, unsigned int count);
 
 #endif
