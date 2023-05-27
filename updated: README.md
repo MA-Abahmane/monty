@@ -59,5 +59,5 @@ Brainfuck is an esoteric programming language created in 1993 by Urban Müller.
 ### Additional tasks: BrainFuck
 
 <li><b>1000-school.bf</b>: Print school. `bf 1000-school.bf`</li>
-<li><b>100!-add.bf</b>: Add two digits given by the user. `bf 1000-school.bf`</li>
+<li><b>1001-add.bf</b>: Add two digits given by the user. `bf 1000-school.bf`</li>
 
